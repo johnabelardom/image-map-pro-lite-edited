@@ -337,7 +337,13 @@ if (!class_exists('ImageMapProLite')) {
 		function print_add_exhibitors_page() {
 			$options = $this->get_admin_options();
 			$this->enqueue_admin_includes();
-			
+			echo "[attc id=1]";
+			include_once( ABSPATH . 'wp-content/plugins/table-creator/includes/classes/ATTC_database.php' );
+			$tablegen = new ATTC_database;
+			if(is_plugin_active('table-creator/tablegen-data-table-generator.php')){
+			    var_dump("nyeam");
+			    var_dump('<pre>', $tablegen->get_all());
+			}
 		}
 		function sanitize_json_for_save($save) {
 			$json = $save['json'];
